@@ -288,7 +288,7 @@ namespace Taiyaki
 
         public static PhoneMsg Message(HeroineDef h, string id)
         {
-            if (h.messages == null) return null;
+            if (h == null || h.messages == null) return null;
             foreach (var m in h.messages) if (m.id == id) return m;
             return null;
         }

@@ -291,7 +291,7 @@ namespace Taiyaki
             var m = Modal.Open(market ? "쇼핑거리 · 재료 가게" : "냉장고 · 재료 (배달 주문)", 360, 250, "paper", true, onChange);
             var c = m.Content;
             var money = UIKit.Label(c, "", 11, Pal.Brown, TextAnchor.MiddleRight, true);
-            money.rectTransform.At(180, 4, 150, 16);
+            money.rectTransform.At(170, 4, 150, 16);
             System.Action refreshMoney = () => money.text = "보유금 " + UIKit.Yen(S.money);
             refreshMoney();
 

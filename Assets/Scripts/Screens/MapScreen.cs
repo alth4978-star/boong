@@ -219,7 +219,7 @@ namespace Taiyaki
             var m = Modal.Open("쇼핑거리", 380, 250, "paper");
             var c = m.Content;
             var money = UIKit.Label(c, "보유금 " + UIKit.Yen(S.money), 11, Pal.Brown, TextAnchor.MiddleRight, true);
-            money.rectTransform.At(200, 4, 150, 16);
+            money.rectTransform.At(190, 4, 150, 16);
             var sub = UIKit.Label(c, "선물 가게 — 주말에 건넬 선물을 고르자", 10, Pal.Ink, TextAnchor.MiddleLeft);
             sub.rectTransform.At(0, 24, 300, 16);
             float y = 44;
@@ -322,7 +322,7 @@ namespace Taiyaki
         void Sign(string text, float x, float y, Color c, int size)
         {
             var t = UIKit.Label(Root, text, size, Pal.A(c, 0.08f), TextAnchor.MiddleLeft, true);
-            t.rectTransform.At(x, y, 200, 24);
+            t.rectTransform.At(x, y, Mathf.Min(200, Game.W - x - 6), 24);
             var o = t.gameObject.AddComponent<Outline>();
             o.effectColor = Pal.A(c, 0.0f);
             o.effectDistance = new Vector2(1.2f, -1.2f);

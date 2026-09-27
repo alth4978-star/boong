@@ -29,7 +29,7 @@ namespace Taiyaki
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
         {
-            if (FindObjectOfType<Game>() != null) return;
+            if (FindAnyObjectByType<Game>() != null) return;
             var go = new GameObject("TaiyakiRomance");
             go.AddComponent<Game>();
         }
@@ -74,7 +74,7 @@ namespace Taiyaki
             scaler.referencePixelsPerUnit = 100;
             canvasGo.AddComponent<GraphicRaycaster>();
 
-            if (FindObjectOfType<EventSystem>() == null)
+            if (FindAnyObjectByType<EventSystem>() == null)
             {
                 var es = new GameObject("EventSystem");
                 es.transform.SetParent(transform, false);

@@ -193,7 +193,14 @@ namespace Taiyaki
             get
             {
                 int n = 0;
-                foreach (var m in inbox) if (!m.read || m.answer == InboxMsg.Pending) n++;
+                foreach (var m in inbox)
+                {
+                    // 데이터에서 사라진 메시지(옛 세이브)나 선택지 없는 메시지는 폰에 안 뜨거나 답장할 수 없으니 배지에서 뺀다
+                    var def = GameData.Message(GameData.Heroine(m.heroine), m.id);
+                    if (def == null) continue;
+                    bool canAnswer = m.answer == InboxMsg.Pending && def.choices != null && def.choices.Length > 0;
+                    if (!m.read || canAnswer) n++;
+                }
                 return n;
             }
         }

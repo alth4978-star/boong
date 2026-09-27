@@ -26,6 +26,18 @@
 > 이미지가 흐리거나 뭉개져 보이면 메뉴 **Taiyaki → Reimport Art** 를 한 번 실행하세요.
 > 세이브 초기화: **Taiyaki → Delete Save Data**
 
+### 자동 스모크 테스트
+
+메뉴 **Taiyaki → Run Smoke Test** 를 누르면 Play 모드에서 봇이 실제 버튼을 눌러 게임 속 3주를 진행합니다 (약 10분).
+런타임 예외 · `[Art] 이미지 없음` 경고 · 약속 대사 회수 · 640×360 밖으로 나가거나 넘치는 텍스트를 검사하고,
+결과를 `Logs/SmokeTest/report.txt`와 화면별 스크린샷(`*.png`)으로 남깁니다. 세이브 데이터는 끝나면 원래대로 돌려놓습니다.
+
+```
+Unity.exe -batchmode -projectPath <이 폴더> -executeMethod Taiyaki.EditorTools.SmokeTest.RunBatch -logFile smoke.log
+```
+
+배치 모드 종료 코드: 0 = 통과, 1 = 실패. 사람이 직접 봐야 하는 항목은 [PLAYTEST.md](PLAYTEST.md)에 있습니다.
+
 ## 조작
 
 | 화면 | 조작 |
@@ -89,6 +101,7 @@ Assets/
            PhonePopup.cs         스마트폰 메시지
     Screens/                     각 화면
     Editor/ArtImportSettings.cs  이미지 임포트 자동 설정 + Taiyaki 메뉴
+           SmokeTest.cs          Play 모드 자동 스모크 테스트 (Taiyaki → Run Smoke Test)
   Resources/
     Data/game.json               경제 수치·메뉴·재료·손님·업그레이드·선물·프롤로그
     Data/heroine_rina.json       리나의 모든 대사·술/안주·대화 주제·메시지·가사
@@ -119,7 +132,7 @@ Assets/
 
 ## 알려진 한계
 
-- 이 저장소의 코드는 Unity 참조 어셈블리로 컴파일 검증만 했고, 에디터에서 직접 플레이 테스트는 하지 못했습니다.
-  처음 실행 시 Console에 경고/에러가 보이면 알려 주세요.
+- Unity 6 (6000.5.4f1) 에디터에서 임포트 · 컴파일 · 자동 스모크 테스트(3주 진행)를 통과했습니다.
+  권장 버전인 2022.3 LTS 에디터에서는 아직 직접 열어 보지 못했습니다.
 - 히로인 표정은 스프라이트 1장 + 연출로 대신합니다 (표정 스프라이트를 추가하면 자동 적용).
 - MIKA / YUU 는 선택 화면에만 표시됩니다 (다음 단계에서 콘텐츠 추가).

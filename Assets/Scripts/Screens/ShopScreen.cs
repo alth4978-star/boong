@@ -1121,7 +1121,7 @@ namespace Taiyaki
             note.rectTransform.Mid(250, 182, 320, 280);
             var p = note.transform;
             var title = UIKit.Label(p, "오늘의 장사  DAY " + S.DayNumber.ToString("00"), 14, Pal.Brown, TextAnchor.MiddleLeft, true);
-            title.rectTransform.At(40, 22, 240, 22);
+            title.rectTransform.At(40, 18, 240, 22);
             string[] rows =
             {
                 "판매한 붕어빵", r.sold + "개",
@@ -1136,9 +1136,9 @@ namespace Taiyaki
             for (int i = 0; i < rows.Length; i += 2)
             {
                 var a = UIKit.Label(p, rows[i], 11, Pal.Ink, TextAnchor.MiddleLeft);
-                a.rectTransform.At(44, 52 + i * 12, 130, 20);
+                a.rectTransform.At(44, 64 + i * 9.5f, 130, 18);
                 var b = UIKit.Label(p, rows[i + 1], 12, Pal.Brown, TextAnchor.MiddleRight, true);
-                b.rectTransform.At(160, 52 + i * 12, 110, 20);
+                b.rectTransform.At(160, 64 + i * 9.5f, 110, 18);
                 Tw.Run(a, Tw.Pop(a.transform, 0.2f + i * 0.03f, 1.1f));
             }
             var total = UIKit.Label(p, "오늘 수입  " + UIKit.Yen(r.revenue + r.tips), 15, new Color(0.7f, 0.25f, 0.1f), TextAnchor.MiddleRight, true);
