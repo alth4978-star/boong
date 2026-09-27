@@ -126,6 +126,7 @@ namespace Taiyaki
             img.raycastTarget = true;
             var b = img.gameObject.AddComponent<UnityEngine.UI.Button>();
             b.targetGraphic = img;
+            b.navigation = new Navigation { mode = Navigation.Mode.None }; // 클릭 후 Space/Enter로 다시 눌리지 않게
             var cb = b.colors;
             cb.highlightedColor = new Color(1.12f, 1.08f, 1f);
             cb.pressedColor = new Color(0.8f, 0.75f, 0.7f);
@@ -153,6 +154,7 @@ namespace Taiyaki
             var b = rt.gameObject.AddComponent<UnityEngine.UI.Button>();
             b.targetGraphic = g;
             b.transition = Selectable.Transition.None;
+            b.navigation = new Navigation { mode = Navigation.Mode.None };
             if (onClick != null) b.onClick.AddListener(() => { if (sound) Sfx.Play("click"); onClick(); });
             if (hover) rt.gameObject.AddComponent<HoverScale>();
             return b;

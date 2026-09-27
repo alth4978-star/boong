@@ -84,7 +84,7 @@ namespace Taiyaki
             me.rectTransform.Fill();
             marker.gameObject.AddComponent<Bob>().amp = 1.5f;
 
-            Hud.Create(Root, mood == Mood.Neon ? HudStyle.Neon : mood == Mood.Night ? HudStyle.Night : HudStyle.Day);
+            Hud.Create(Root, mood == Mood.Neon ? HudStyle.Neon : mood == Mood.Night ? HudStyle.Night : HudStyle.Day, 405);
             var tip = UIKit.Frame(Root, mood == Mood.Neon ? "neon" : "dark");
             tip.rectTransform.At(420, 5, 214, 40);
             var tt = UIKit.Label(tip.transform, Guide(), 9, Pal.Cream, TextAnchor.MiddleCenter, false, true);

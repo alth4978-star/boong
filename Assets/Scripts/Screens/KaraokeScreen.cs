@@ -47,7 +47,7 @@ namespace Taiyaki
             lyricBox.rectTransform.At(150, 36, 340, 30);
             lyricText = UIKit.Label(lyricBox.transform, "♪ " + h.name + "의 18번 — 「첫눈 오는 밤」 ♪", 11, Color.white, TextAnchor.MiddleCenter, false, true);
             lyricText.rectTransform.Fill(6, 0, 6, 0);
-            var hud = Hud.Create(Root, HudStyle.Neon, 300);
+            var hud = Hud.Create(Root, HudStyle.Neon, 340);
             hud.timeOverride = "23:10";
             hud.extra = "KARAOKE ♪";
 
