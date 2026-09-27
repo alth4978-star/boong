@@ -62,7 +62,7 @@
       "angryLines": ["오늘은 바쁜가 보네"] }
   ],
   "upgrades": [
-    { "id": "mold3", "name": "붕어빵 틀 +1", "desc": "붕어빵 틀을 하나 더 들인다. (틀 2개 → 3개)\n동시에 더 많이 구울 수 있지만 그만큼 바빠진다.", "price": 12000, "molds": 3, "level": 2 }
+    { "id": "mold3", "name": "붕어빵 틀 +1", "desc": "붕어빵 틀을 하나 더 들인다. (틀 2개 → 3개)\n동시에 더 많이 구울 수 있지만 그만큼 바빠진다.", "price": 8000, "molds": 3, "level": 2 }
   ],
   "gifts": [
     { "id": "scarf", "name": "와인색 목도리", "desc": "그녀의 코트와 어울릴 것 같은 부드러운 목도리.", "price": 6000, "sprite": "Sprites/noren" },
