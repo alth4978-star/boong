@@ -66,6 +66,20 @@ namespace Taiyaki
             if (S.Has("rina_ate_perfect")) lines.AddRange(h.memoryPerfect);
             else if (S.Has("rina_visited_shop")) lines.AddRange(h.memoryVisited);
             else if (S.Has("rina_missed")) lines.AddRange(h.memoryMissed);
+
+            // 지킨 약속은 그녀도 기억한다
+            if (S.Has("promise_sat"))
+            {
+                S.Unset("promise_sat");
+                S.AddAffection(2);
+                lines.AddRange(h.promiseSatKept);
+            }
+            if (S.Has("dream_partner") && !S.Has("dream_recalled"))
+            {
+                S.Set("dream_recalled");
+                S.AddAffection(2);
+                lines.AddRange(h.dreamRecall);
+            }
             Play(lines.ToArray(), ShowMenu);
         }
 
@@ -255,8 +269,11 @@ namespace Taiyaki
                     bool perfect = S.giftTaiyakiPerfect;
                     S.giftTaiyaki = 0;
                     S.SetWeek("rina_gift_taiyaki");
-                    Affection(perfect ? 12 : 8);
-                    Play(perfect ? h.giftTaiyakiPerfect : h.giftTaiyaki, ShowMenu);
+                    var lines = new List<Line>(perfect ? h.giftTaiyakiPerfect : h.giftTaiyaki);
+                    var kept = KeptPromise(S.giftTaiyakiFilling);
+                    if (kept != null) lines.AddRange(kept);
+                    Affection((perfect ? 12 : 8) + (kept != null ? 4 : 0));
+                    Play(lines.ToArray(), ShowMenu);
                 }
                 else
                 {
@@ -265,6 +282,14 @@ namespace Taiyaki
                     Play(id == "scarf" ? h.giftScarf : h.giftFlower, ShowMenu);
                 }
             });
+        }
+
+        /// <summary>붕어빵 선물로 지켜진 약속이 있으면 그 대사 (약속은 한 번만)</summary>
+        Line[] KeptPromise(string filling)
+        {
+            if (filling == "red" && S.Has("promise_red")) { S.Unset("promise_red"); return h.promiseRedKept; }
+            if (filling == "strawberry" && S.Has("promise_strawberry")) { S.Unset("promise_strawberry"); return h.promiseStrawberryKept; }
+            return null;
         }
 
         void Talk()

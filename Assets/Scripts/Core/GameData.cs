@@ -196,6 +196,11 @@ namespace Taiyaki
         public Line[] memoryPerfect;
         public Line[] memoryVisited;
         public Line[] memoryMissed;
+        public Line[] promiseSatKept;        // 문자로 "꼭 갈게" 약속 후 클럽에 왔을 때
+        public Line[] promiseRedKept;        // "팥붕 가져올게" 약속 후 팥 붕어빵을 선물했을 때
+        public Line[] promiseStrawberryKept; // "제일 먼저 먹게 해 줄게" 약속 후 딸기 크림을 건넸을 때
+        public Line[] shopPromiseStrawberry; // 같은 약속을 노점에서 지켰을 때 (짧은 말풍선용)
+        public Line[] dreamRecall;           // 카페 동업 얘기를 기억해 둔 다음 주 클럽
         public Line[] shopVisitFirst;
         public Line[] shopVisitAgain;
         public Line[] shopServed;

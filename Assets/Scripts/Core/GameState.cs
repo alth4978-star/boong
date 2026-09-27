@@ -130,6 +130,19 @@ namespace Taiyaki
 
         public bool IsUnlocked(string fillingId) { return unlockedFillings.Contains(fillingId); }
 
+        /// <summary>지금 재고로 구울 수 있는 붕어빵 개수 (반죽 1 + 속 1)</summary>
+        public int BakeableCount
+        {
+            get
+            {
+                int fillings = 0;
+                foreach (var f in unlockedFillings) fillings += Stock(f);
+                return Math.Min(batter, fillings);
+            }
+        }
+
+        public const int DailyStockTarget = 20;   // 하루 장사에 20~30개 정도 팔린다
+
         // ───────── 돈 ─────────
         public bool Spend(int amount)
         {

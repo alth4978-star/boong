@@ -108,6 +108,26 @@
     { "who": "rina", "text": "나 붕어빵 사러 갔었는데… 너 너무 바빠 보여서 그냥 왔어.", "expr": "pout" },
     { "who": "rina", "text": "다음엔 나부터 줘야 해?", "expr": "smile" }
   ],
+  "promiseSatKept": [
+    { "who": "rina", "text": "진짜 왔네? 문자로 '꼭 갈게' 한 거, 빈말인 줄 알았어.", "expr": "surprised" },
+    { "who": "rina", "text": "…약속 지키는 사람, 좋더라.", "expr": "embarrassed" }
+  ],
+  "promiseRedKept": [
+    { "who": "rina", "text": "…팥이다. 저번에 할머니 얘기한 거, 기억하고 있었어?", "expr": "surprised" },
+    { "who": "rina", "text": "종이봉투에 담긴 거까지 똑같아. 가슴이 따뜻해진다.", "expr": "love" }
+  ],
+  "promiseStrawberryKept": [
+    { "who": "rina", "text": "어? 이거 분홍색… 딸기 크림 붕어빵?!", "expr": "surprised" },
+    { "who": "rina", "text": "진짜 만들었구나. 제일 먼저 먹게 해 준다는 약속, 지켰네~", "expr": "love" }
+  ],
+  "shopPromiseStrawberry": [
+    { "who": "rina", "text": "분홍색…! 딸기 크림이다!", "expr": "surprised" },
+    { "who": "rina", "text": "약속 지켰네~ 고마워!", "expr": "love" }
+  ],
+  "dreamRecall": [
+    { "who": "rina", "text": "있잖아, 저번에 한 동업 얘기… 가끔 생각나더라.", "expr": "embarrassed" },
+    { "who": "rina", "text": "카페 메뉴판 맨 위에 '사장님표 붕어빵'. 어때? 헤헤.", "expr": "smile" }
+  ],
 
   "shopVisitFirst": [
     { "who": "rina", "text": "어? 여기서 일하는구나." },

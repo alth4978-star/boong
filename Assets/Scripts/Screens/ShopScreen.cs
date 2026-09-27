@@ -678,8 +678,7 @@ namespace Taiyaki
             {
                 c.def = new CustomerDef { id = "heroine", name = GameData.Rina.name, minItems = 1, maxItems = 1, patience = 55, tipRate = 1f };
                 sprite = GameData.Rina.smallSprite;
-                string fav = S.IsUnlocked("strawberry") ? "strawberry" : "red";
-                c.order[fav] = 1;
+                c.order[HeroineFavorite()] = 1;
             }
             else
             {
@@ -753,6 +752,24 @@ namespace Taiyaki
 
             slots[slot] = c;
             Tw.Run(c.rt, Tw.Pop(c.rt, 0.25f, 1.08f));
+        }
+
+        /// <summary>리나의 주문: 딸기 크림 → 추억의 팥 순서로, 오늘 실제로 만들어 줄 수 있는 것만 고른다</summary>
+        string HeroineFavorite()
+        {
+            foreach (var id in new[] { "strawberry", "red" })
+                if (S.IsUnlocked(id) && CanSupply(id)) return id;
+            foreach (var id in S.unlockedFillings)
+                if (CanSupply(id)) return id;
+            return "red";
+        }
+
+        bool CanSupply(string id)
+        {
+            if (S.Stock(id) > 0) return true;
+            foreach (var it in rack) if (it.filling == id) return true;
+            foreach (var m in molds) if ((m.state == MoldState.SideA || m.state == MoldState.SideB) && m.filling == id) return true;
+            return false;
         }
 
         CustomerDef PickCustomerDef()
@@ -852,8 +869,16 @@ namespace Taiyaki
                 S.SetWeek("rina_visited_shop");
                 bool perf = perfect > 0;
                 if (perf) S.SetWeek("rina_ate_perfect");
+                var lines = perf ? GameData.Rina.shopServedPerfect : GameData.Rina.shopServed;
+                if (c.order.ContainsKey("strawberry") && S.Has("promise_strawberry"))
+                {
+                    // "제일 먼저 먹게 해 줄게" 약속을 노점에서 지켰다
+                    S.Unset("promise_strawberry");
+                    S.AddAffection(4);
+                    lines = GameData.Rina.shopPromiseStrawberry;
+                }
                 S.AddAffection(perf ? 5 : 3);
-                StartCoroutine(HeroineLeave(c, perf ? GameData.Rina.shopServedPerfect : GameData.Rina.shopServed));
+                StartCoroutine(HeroineLeave(c, lines));
             }
             else
             {
@@ -1035,7 +1060,19 @@ namespace Taiyaki
             var bt = UIKit.Label(banner.transform, "영업 종료!", 18, Pal.Gold, TextAnchor.MiddleCenter, true, true);
             bt.rectTransform.Fill();
             Tw.Run(banner, Tw.Pop(banner.transform, 0.3f, 1.15f));
-            foreach (var c in slots) if (c != null && !c.leaving) { if (c.heroine) StartCoroutine(HeroineLeave(c, GameData.Rina.shopLeft)); else Leave(c, false); }
+            foreach (var c in slots)
+            {
+                if (c == null || c.leaving) continue;
+                if (c.heroine)
+                {
+                    // 기다리다 문 닫는 바람에 못 산 것도 놓친 것 — 클럽에서 그 얘기가 나온다
+                    result.missed++;
+                    S.SetWeek("rina_missed");
+                    S.AddAffection(-1);
+                    StartCoroutine(HeroineLeave(c, GameData.Rina.shopLeft));
+                }
+                else Leave(c, false);
+            }
             yield return new WaitForSeconds(2f);
             Finish();
         }

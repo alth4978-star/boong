@@ -13,7 +13,7 @@ namespace Taiyaki
         Hud hud;
         Text badge;
         Image badgeBg;
-        Text goalText;
+        Text goalText, hintText;
         Image goalFill;
 
         public override void Build()
@@ -100,21 +100,29 @@ namespace Taiyaki
 
         void ShowHint()
         {
+            var bar = UIKit.Frame(Root, "dark");
+            bar.rectTransform.At(150, 336, 340, 20);
+            hintText = UIKit.Label(bar.transform, "", 9, Pal.Cream, TextAnchor.MiddleCenter, false, true);
+            hintText.rectTransform.Fill(4, 0, 4, 0);
+        }
+
+        string HintMessage()
+        {
             string msg;
             if (S.IsNight) msg = S.UnreadCount > 0 ? "스마트폰에 메시지가 와 있다." : "오늘 하루도 수고했다. 침대에서 쉬자.";
-            else if (S.Today == DayPlan.Work) msg = S.stamina <= 0 ? "몸이 무겁다… 오늘은 쉬어야 할 것 같다. (침대)" : "오늘은 장사하는 날. 현관으로 나가 노점으로 가자.";
+            else if (S.Today == DayPlan.Work && S.stamina <= 0) msg = "몸이 무겁다… 오늘은 쉬어야 할 것 같다. (침대)";
+            else if (S.Today == DayPlan.Work && S.BakeableCount < GameState.DailyStockTarget) msg = "재료가 " + S.BakeableCount + "개 분량뿐이다. 냉장고에서 먼저 주문하자!";
+            else if (S.Today == DayPlan.Work) msg = "오늘은 장사하는 날. 현관으로 나가 노점으로 가자.";
             else if (S.Today == DayPlan.Rest) msg = "오늘은 쉬는 날. 침대에서 쉬거나, 쇼핑거리에 다녀와도 좋다.";
             else if (S.Today == DayPlan.Club) msg = "토요일 밤. " + GameData.Rina.name + "가 기다리는 번화가로 가자!";
             else msg = S.Has("date_accepted") ? "약속한 겨울 축제에 가자! (현관)" : "일요일. 푹 쉬며 다음 주를 준비하자.";
-            var bar = UIKit.Frame(Root, "dark");
-            bar.rectTransform.At(150, 336, 340, 20);
-            var t = UIKit.Label(bar.transform, msg, 9, Pal.Cream, TextAnchor.MiddleCenter, false, true);
-            t.rectTransform.Fill(4, 0, 4, 0);
+            return msg;
         }
 
         void Refresh()
         {
             if (hud != null) hud.Refresh();
+            hintText.text = HintMessage();
             int unread = S.UnreadCount;
             badgeBg.gameObject.SetActive(unread > 0);
             badge.gameObject.SetActive(unread > 0);
@@ -196,6 +204,18 @@ namespace Taiyaki
                 Modal.Message("체력이 바닥이다. 오늘은 장사를 못 하겠다…\n(침대에서 쉬어 주세요)");
                 return;
             }
+            if (S.Today == DayPlan.Work && S.BakeableCount < GameState.DailyStockTarget)
+            {
+                // 장사 중엔 집에 못 돌아오니, 나가기 전에 한 번 알려 준다
+                Modal.Confirm("재료가 붕어빵 " + S.BakeableCount + "개 분량뿐이다.\n(하루 장사엔 " + GameState.DailyStockTarget + "개 이상 필요)",
+                    "냉장고 열기", "그냥 출근", () => MarketPopup.Open(false, Refresh), GoOut);
+                return;
+            }
+            GoOut();
+        }
+
+        void GoOut()
+        {
             Sfx.Play("door");
             Game.Go<MapScreen>();
         }
