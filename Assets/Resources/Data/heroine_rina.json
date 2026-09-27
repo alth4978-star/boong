@@ -1,0 +1,296 @@
+{
+  "id": "rina",
+  "name": "리나",
+  "nameEn": "RINA",
+  "job": "클럽 NEON MOON",
+  "profile": "달콤한 칵테일을 좋아하지만 술이 약하다. 비싼 술보다 '기억해 주는 취향'에 약하다. 팥 붕어빵과 오래된 겨울 추억 루트.",
+  "themeMain": "#7A1A2A",
+  "themeAccent": "#D4A24A",
+  "sprite": "Characters/rina",
+  "smallSprite": "Characters/rina_small",
+  "tolerance": 5,
+  "stageNames": ["처음 본 손님", "낯익은 손님", "친한 손님", "친구", "특별한 사람", "연인"],
+  "stageThresholds": [0, 10, 25, 45, 70, 90],
+
+  "drinks": [
+    { "id": "strawberry", "name": "딸기 칵테일", "desc": "달콤한 한 잔", "price": 2500, "drunk": 1, "affection": 4,
+      "lines": [ { "who": "rina", "text": "와, 딸기! 내가 이런 거 좋아하는 거 어떻게 알았어?", "expr": "smile" } ] },
+    { "id": "highball", "name": "하이볼", "desc": "무난한 한 잔", "price": 2000, "drunk": 1, "affection": 2,
+      "lines": [ { "who": "rina", "text": "짠~! 오늘도 수고했어, 사장님.", "expr": "smile" } ] },
+    { "id": "whisky", "name": "위스키 온더락", "desc": "비싸고 독한 술", "price": 4500, "drunk": 2, "affection": 0,
+      "lines": [ { "who": "rina", "text": "으… 써. 이런 건 비싸기만 하고…", "expr": "pout" },
+                 { "who": "", "text": "비싼 술이 정답은 아닌 것 같다." } ] },
+    { "id": "yuja", "name": "유자 에이드 (논알콜)", "desc": "쉬어 가기", "price": 1500, "drunk": -1, "affection": 1,
+      "lines": [ { "who": "rina", "text": "논알콜? …챙겨 주는 거야? 고마워.", "expr": "embarrassed" } ] }
+  ],
+  "snacks": [
+    { "id": "fruit", "name": "과일 플래터", "desc": "술이 조금 깬다", "price": 3500, "drunk": -1, "affection": 3,
+      "lines": [ { "who": "rina", "text": "딸기도 있네! 하나 먹여 줄까? …농담이야~", "expr": "smile" } ] },
+    { "id": "fries", "name": "감자튀김", "desc": "무난한 안주", "price": 2000, "drunk": 0, "affection": 2,
+      "lines": [ { "who": "rina", "text": "감튀는 못 참지~", "expr": "smile" } ] },
+    { "id": "potato", "name": "군고구마", "desc": "겨울 간식", "price": 1800, "drunk": 0, "affection": 4,
+      "lines": [ { "who": "rina", "text": "군고구마! 겨울엔 역시 이런 게 좋아.", "expr": "smile" },
+                 { "who": "rina", "text": "…할머니 생각난다. 겨울 간식은 다 좋아.", "expr": "serious" } ] }
+  ],
+
+  "topics": [
+    { "id": "job", "title": "붕어빵 장사 이야기", "minDrunk": 0, "maxDrunk": 9, "minAffection": 0,
+      "lines": [ { "who": "rina", "text": "근데 진짜 붕어빵 가게 해? 하루에 몇 개나 구워?", "expr": "surprised" } ],
+      "choices": [
+        { "text": "많을 땐 서른 개 넘게 구워", "affection": 3, "reply": [ { "who": "rina", "text": "우와, 팔 아프겠다. 멋있네, 그런 거.", "expr": "smile" } ] },
+        { "text": "사실 자주 태워… 연습 중이야", "affection": 4, "reply": [ { "who": "rina", "text": "푸흡, 솔직하네. 그런 거 좋아.", "expr": "smile" } ] },
+        { "text": "돈 벌어서 너 보러 왔지", "affection": 1, "reply": [ { "who": "rina", "text": "…능글맞기는. 그런 말 여기서 많이 들어.", "expr": "pout" } ] }
+      ] },
+    { "id": "winter", "title": "겨울 좋아해?", "minDrunk": 0, "maxDrunk": 9, "minAffection": 0,
+      "lines": [ { "who": "rina", "text": "밖에 눈 온다~ 너는 겨울 좋아해?", "expr": "smile" } ],
+      "choices": [
+        { "text": "붕어빵이 잘 팔려서 좋아", "affection": 2, "reply": [ { "who": "rina", "text": "하하, 완전 사장님 마인드.", "expr": "smile" } ] },
+        { "text": "눈 오는 밤은 좋아", "affection": 3, "reply": [ { "who": "rina", "text": "나도. 조용해지잖아, 세상이.", "expr": "serious" } ] },
+        { "text": "추워서 싫어", "affection": 0, "reply": [ { "who": "rina", "text": "에이~ 그럼 붕어빵 먹으면서 버텨야지.", "expr": "normal" } ] }
+      ] },
+    { "id": "club", "title": "여기서 일하는 거", "minDrunk": 0, "maxDrunk": 9, "minAffection": 8,
+      "lines": [ { "who": "rina", "text": "여기 일? 음… 재밌을 때도 있고, 피곤할 때도 있고.", "expr": "serious" },
+                 { "who": "rina", "text": "근데 너처럼 붕어빵 얘기하는 손님은 처음이야.", "expr": "smile" } ],
+      "choices": [
+        { "text": "피곤할 땐 붕어빵 먹으러 와", "affection": 4, "reply": [ { "who": "rina", "text": "그럼 공짜야? 헤헤.", "expr": "smile" } ] },
+        { "text": "나도 여기 오면 피곤이 풀려", "affection": 3, "reply": [ { "who": "rina", "text": "그럼 매주 와~ 나 토요일마다 있어.", "expr": "smile" } ] },
+        { "text": "돈 많이 벌어?", "affection": -2, "reply": [ { "who": "rina", "text": "…그런 건 묻는 거 아니야.", "expr": "pout" } ] }
+      ] },
+    { "id": "sweet", "title": "좋아하는 맛", "minDrunk": 1, "maxDrunk": 9, "minAffection": 0, "grantFlag": "hint_strawberry",
+      "lines": [ { "who": "rina", "text": "있지… 나 딸기 좋아해. 딸기 우유, 딸기 케이크, 딸기 칵테일~", "expr": "drunk" },
+                 { "who": "rina", "text": "딸기 크림 붕어빵 같은 거 있으면 귀엽겠다. 분홍색으로!", "expr": "smile" } ],
+      "choices": [
+        { "text": "만들어 볼게. 제일 먼저 먹게 해 줄게", "affection": 5, "flag": "promise_strawberry", "reply": [ { "who": "rina", "text": "진짜? 약속했다~ 새끼손가락!", "expr": "love" } ] },
+        { "text": "붕어빵은 팥이 근본이지", "affection": 1, "reply": [ { "who": "rina", "text": "치, 고지식하긴.", "expr": "pout" } ] },
+        { "text": "분홍 붕어빵… 팔릴까?", "affection": 2, "reply": [ { "who": "rina", "text": "내가 매일 사 먹을게. 그럼 팔리지?", "expr": "smile" } ] }
+      ] },
+    { "id": "grandma", "title": "어릴 적 겨울 이야기", "minDrunk": 1, "maxDrunk": 9, "minAffection": 10,
+      "lines": [ { "who": "rina", "text": "…어릴 때 할머니가 겨울마다 팥 붕어빵을 사 주셨거든.", "expr": "serious" },
+                 { "who": "rina", "text": "종이봉투에 담아서 품에 안고 오면, 가슴이 따뜻했어.", "expr": "serious" } ],
+      "choices": [
+        { "text": "다음엔 내가 구운 팥붕 가져올게", "affection": 5, "flag": "promise_red", "reply": [ { "who": "rina", "text": "…응. 기대할게.", "expr": "embarrassed" } ] },
+        { "text": "할머니는 지금도 건강하셔?", "affection": 3, "reply": [ { "who": "rina", "text": "응, 시골에 계셔. 요즘은 전화만 해. …보고 싶다.", "expr": "serious" } ] },
+        { "text": "팥보다 슈크림이 낫지 않아?", "affection": -1, "reply": [ { "who": "rina", "text": "…그런 얘기 아니었는데.", "expr": "pout" } ] }
+      ] },
+    { "id": "dream", "title": "리나의 비밀", "minDrunk": 2, "maxDrunk": 9, "minAffection": 18,
+      "lines": [ { "who": "rina", "text": "헤헤… 나 비밀 하나 말해 줄까?", "expr": "drunk" },
+                 { "who": "rina", "text": "나 사실 여기서 돈 모아서… 작은 디저트 카페 하고 싶어.", "expr": "drunk" } ],
+      "choices": [
+        { "text": "잘 어울려. 꼭 할 수 있을 거야", "affection": 5, "reply": [ { "who": "rina", "text": "…진짜? 아무한테도 말 안 한 건데.", "expr": "embarrassed" } ] },
+        { "text": "그럼 붕어빵 메뉴도 넣자", "affection": 6, "flag": "dream_partner", "reply": [ { "who": "rina", "text": "푸하하! 동업하자는 거야? …그것도 좋겠다.", "expr": "love" } ] },
+        { "text": "힘들지 않을까?", "affection": 0, "reply": [ { "who": "rina", "text": "…알아. 그래서 비밀이었지.", "expr": "serious" } ] }
+      ] }
+  ],
+
+  "firstMeet": [
+    { "who": "rina", "text": "어? 왔네! 붕어빵 사장님 맞지?", "expr": "surprised" },
+    { "who": "rina", "text": "진짜 올 줄은 몰랐는데. 약속 지키는 사람이구나.", "expr": "smile" },
+    { "who": "hero", "text": "약속했잖아." },
+    { "who": "rina", "text": "후훗. 오늘은 내가 옆에 있어 줄게. 뭐 마실래?", "expr": "smile" }
+  ],
+  "greetNormal": [
+    { "who": "rina", "text": "왔어? 이번 주도 고생 많았지?", "expr": "smile" },
+    { "who": "rina", "text": "앉아 앉아. 오늘은 뭐부터 할까?", "expr": "normal" }
+  ],
+  "greetHigh": [
+    { "who": "rina", "text": "여기야 여기~! 오늘 올 줄 알았어.", "expr": "love" },
+    { "who": "rina", "text": "이번 주 내내 토요일만 기다렸다구. …농담 아니야.", "expr": "embarrassed" }
+  ],
+  "memoryPerfect": [
+    { "who": "rina", "text": "아, 맞다. 지난번 붕어빵 맛있었어.", "expr": "smile" },
+    { "who": "rina", "text": "겉은 바삭하고 속은 촉촉하고… 너 은근 실력자더라?", "expr": "smile" }
+  ],
+  "memoryVisited": [
+    { "who": "rina", "text": "지난번에 붕어빵 사러 갔던 거 기억나?", "expr": "normal" },
+    { "who": "rina", "text": "앞치마 두른 모습, 좀 귀엽던데.", "expr": "embarrassed" }
+  ],
+  "memoryMissed": [
+    { "who": "rina", "text": "나 붕어빵 사러 갔었는데… 너 너무 바빠 보여서 그냥 왔어.", "expr": "pout" },
+    { "who": "rina", "text": "다음엔 나부터 줘야 해?", "expr": "smile" }
+  ],
+
+  "shopVisitFirst": [
+    { "who": "rina", "text": "어? 여기서 일하는구나." },
+    { "who": "rina", "text": "오늘은 팥 하나 줘." }
+  ],
+  "shopVisitAgain": [
+    { "who": "rina", "text": "나 또 왔지롱~" },
+    { "who": "rina", "text": "늘 먹던 걸로 하나!" }
+  ],
+  "shopServed": [
+    { "who": "rina", "text": "고마워~ 잘 먹을게!" },
+    { "who": "rina", "text": "토요일에 봐?" }
+  ],
+  "shopServedPerfect": [
+    { "who": "rina", "text": "와… 완전 노릇노릇하다!" },
+    { "who": "rina", "text": "토요일에 봐. 기다릴게~" }
+  ],
+  "shopLeft": [
+    { "who": "rina", "text": "바쁜가 보네… 다음에 올게." }
+  ],
+
+  "drunkWarn": [
+    { "who": "rina", "text": "으음… 나 좀 취한 것 같아…", "expr": "drunk" },
+    { "who": "", "text": "그녀의 볼이 발그레하다. 더 마시면 위험할지도 모른다." }
+  ],
+  "goHomeDrunk": [
+    { "who": "rina", "text": "우으… 세상이 빙글빙글…", "expr": "drunk" },
+    { "who": "", "text": "그녀는 결국 먼저 들어가 버렸다. 너무 많이 마시게 했나 보다…" }
+  ],
+  "karaokeAsk": [
+    { "who": "hero", "text": "저기… 2차 갈래? 노래방." },
+    { "who": "rina", "text": "노래방? 좋아! 나 노래방 완전 좋아해~", "expr": "smile" },
+    { "who": "rina", "text": "대신 탬버린은 네 담당이야. 알았지?", "expr": "smile" }
+  ],
+  "karaokeGreat": [
+    { "who": "rina", "text": "우와아! 우리 호흡 완전 잘 맞는다!", "expr": "love" },
+    { "who": "rina", "text": "…있지, 오늘 진짜 즐거웠어. 다음 주에도 올 거지?", "expr": "embarrassed" }
+  ],
+  "karaokeOk": [
+    { "who": "rina", "text": "하하, 즐거웠다~! 탬버린 박자는 좀 수상했지만?", "expr": "smile" },
+    { "who": "rina", "text": "그래도 같이 불러 줘서 고마워.", "expr": "normal" }
+  ],
+  "karaokeBad": [
+    { "who": "rina", "text": "푸하하! 너 혹시 박치야?", "expr": "smile" },
+    { "who": "rina", "text": "괜찮아, 괜찮아. 웃겨서 스트레스 다 풀렸어.", "expr": "smile" }
+  ],
+
+  "giftTaiyaki": [
+    { "who": "hero", "text": "이거… 오늘 장사하고 남은 거. 내가 구웠어." },
+    { "who": "rina", "text": "진짜? 네가 구운 붕어빵?", "expr": "surprised" },
+    { "who": "rina", "text": "…아직 따뜻하다. 품에 안고 왔구나.", "expr": "embarrassed" },
+    { "who": "rina", "text": "고마워. 이런 선물은 처음이야.", "expr": "smile" }
+  ],
+  "giftTaiyakiPerfect": [
+    { "who": "hero", "text": "이거… 오늘 제일 잘 구워진 거야. 너 주려고 챙겼어." },
+    { "who": "rina", "text": "우와… 모양도 색도 완벽해. 먹기 아까울 정도야.", "expr": "surprised" },
+    { "who": "rina", "text": "…아직 따뜻하다. 품에 안고 왔구나.", "expr": "embarrassed" },
+    { "who": "rina", "text": "비싼 술보다 이게 훨씬 좋아. 진짜로.", "expr": "love" }
+  ],
+  "giftScarf": [
+    { "who": "rina", "text": "목도리? 와인색… 내 코트랑 딱이다!", "expr": "surprised" },
+    { "who": "rina", "text": "…어떻게 알았어? 내가 이 색 좋아하는 거.", "expr": "love" }
+  ],
+  "giftFlower": [
+    { "who": "rina", "text": "꽃? 헤헤, 오랜만에 받아 본다.", "expr": "smile" },
+    { "who": "rina", "text": "여기 테이블에 꽂아 둘게. 고마워.", "expr": "normal" }
+  ],
+  "gameIntro": [
+    { "who": "rina", "text": "게임 할래? 홀짝! 내 손 안의 사탕 개수 맞히기~", "expr": "smile" }
+  ],
+  "gameWin": [
+    { "who": "rina", "text": "헐, 맞혔어?! 너 혹시 투시 능력 있어?", "expr": "surprised" },
+    { "who": "rina", "text": "좋아, 상으로 사탕은 네 거!", "expr": "smile" }
+  ],
+  "gameLose": [
+    { "who": "rina", "text": "땡~! 벌칙은… 나한테 붕어빵 쿠폰 발급!", "expr": "smile" },
+    { "who": "rina", "text": "헤헤, 다음에 가면 하나 공짜다?", "expr": "smile" }
+  ],
+  "timeUp": [
+    { "who": "", "text": "어느새 자정. 영업이 끝날 시간이다." },
+    { "who": "rina", "text": "벌써 시간이 이렇게 됐네… 오늘 즐거웠어.", "expr": "smile" },
+    { "who": "rina", "text": "조심히 들어가. 다음 주에도 기다릴게.", "expr": "smile" }
+  ],
+  "farewell": [
+    { "who": "rina", "text": "벌써 가? 음… 알았어.", "expr": "pout" },
+    { "who": "rina", "text": "조심히 들어가~ 붕어빵 사장님.", "expr": "smile" }
+  ],
+  "noMoney": [
+    { "who": "", "text": "지갑이 가볍다… 무리하면 안 된다." },
+    { "who": "rina", "text": "괜찮아, 무리하지 마. 너랑 얘기하는 게 더 좋아.", "expr": "smile" }
+  ],
+
+  "dateIntro": [
+    { "who": "rina", "text": "여기야~! 겨울 축제, 사람 진짜 많다.", "expr": "smile" },
+    { "who": "hero", "text": "추운데 나와 줘서 고마워." },
+    { "who": "rina", "text": "내가 가자고 했잖아. 그래서… 오늘 약속한 거 있지?", "expr": "smile" },
+    { "who": "rina", "text": "네가 구운 붕어빵. 갓 나온 걸로 먹어 보고 싶어.", "expr": "embarrassed" }
+  ],
+  "dateCg": [
+    { "who": "rina", "text": "…이게, 네가 방금 구운 거야?" },
+    { "who": "rina", "text": "잘 먹겠습니다." },
+    { "who": "rina", "text": "…!" },
+    { "who": "rina", "text": "따끈따끈해. 바삭하고… 달고…" },
+    { "who": "rina", "text": "할머니가 사 주던 거랑, 똑같은 맛이 나." },
+    { "who": "", "text": "눈 내리는 축제 한가운데서, 그녀가 웃었다." }
+  ],
+  "dateOutro": [
+    { "who": "rina", "text": "있지… 앞으로는 내가 먼저 노점에 갈게.", "expr": "love" },
+    { "who": "rina", "text": "토요일까지 기다리기엔, 좀 길잖아.", "expr": "embarrassed" },
+    { "who": "", "text": "그녀를 만나기 위해 굽던 붕어빵이, 그녀가 찾아오는 이유가 되었다." }
+  ],
+
+  "messages": [
+    { "id": "mon_morning",
+      "texts": ["붕어빵 사장님~ 나 리나야 ㅎㅎ", "지난 주말에 명함 준 거 기억하지?", "이번 토요일에도 나 출근해!"],
+      "choices": [
+        { "text": "꼭 갈게", "affection": 3, "flag": "promise_sat", "reply": [ { "who": "rina", "text": "약속했다? 기다릴게~" } ] },
+        { "text": "돈 모아서 갈게 ㅋㅋ", "affection": 2, "reply": [ { "who": "rina", "text": "ㅋㅋㅋ 열심히 구워~ 응원할게" } ] },
+        { "text": "생각해 볼게", "affection": 0, "reply": [ { "who": "rina", "text": "치… 튕기기는 ㅋㅋ" } ] }
+      ] },
+    { "id": "mon_morning2",
+      "texts": ["이번 주도 장사 시작이야? 파이팅!", "토요일에 또 와 ㅎㅎ"],
+      "choices": [
+        { "text": "당연하지", "affection": 2, "reply": [ { "who": "rina", "text": "헤헤 좋아~" } ] },
+        { "text": "이번 주는 바빠서…", "affection": -1, "reply": [ { "who": "rina", "text": "흥, 알았어…" } ] }
+      ] },
+    { "id": "mon_morning_close",
+      "texts": ["좋은 아침~", "주말이 벌써 기다려지는 건 나뿐이야?"],
+      "choices": [
+        { "text": "나도 그래", "affection": 3, "reply": [ { "who": "rina", "text": "…헤헤. 이번 주도 힘내!" } ] },
+        { "text": "벌써? ㅋㅋ", "affection": 1, "reply": [ { "who": "rina", "text": "뭐야 그 반응 ㅋㅋ" } ] }
+      ] },
+    { "id": "rest_day",
+      "texts": ["오늘 붕어빵 먹으러 갔는데", "너 없더라 ㅋㅋ"],
+      "choices": [
+        { "text": "오늘 쉬었어", "affection": 1, "reply": [ { "who": "rina", "text": "아하 푹 쉬어~ 몸이 재산이야" } ] },
+        { "text": "나 보고 싶었어?", "affection": 2, "reply": [ { "who": "rina", "text": "…아니거든? ㅋㅋ 붕어빵이 보고 싶었던 거야" } ] },
+        { "text": "내일 와", "affection": 2, "flag": "promise_visit", "reply": [ { "who": "rina", "text": "내일? 음… 알았어! 팥 남겨 놔~" } ] }
+      ] },
+    { "id": "tue_night",
+      "texts": ["오늘 장사 어땠어?", "손님 많았어?"],
+      "choices": [
+        { "text": "완전 대박", "affection": 1, "reply": [ { "who": "rina", "text": "오~ 사장님 부자 되겠네 ㅋㅋ" } ] },
+        { "text": "좀 태웠어…", "affection": 2, "reply": [ { "who": "rina", "text": "ㅋㅋㅋ 귀여워. 내일은 잘 될 거야" } ] },
+        { "text": "네 생각 하느라 태웠어", "affection": 1, "reply": [ { "who": "rina", "text": "…그런 멘트 어디서 배웠어 ㅋㅋ" } ] }
+      ] },
+    { "id": "fri_night",
+      "texts": ["내일 토요일이다~", "나 출근해. 올 거지?"],
+      "choices": [
+        { "text": "당연하지!", "affection": 2, "reply": [ { "who": "rina", "text": "좋아! 맛있는 거 마시자 ㅎㅎ" } ] },
+        { "text": "돈 좀 모였어", "affection": 1, "reply": [ { "who": "rina", "text": "ㅋㅋ 무리하지는 마~ 얼굴 보는 게 중요하지" } ] }
+      ] },
+    { "id": "sat_night",
+      "texts": ["잘 들어갔어?", "오늘 재밌었어 ㅎㅎ"],
+      "choices": [
+        { "text": "나도 즐거웠어", "affection": 2, "reply": [ { "who": "rina", "text": "다음 주에도 와~ ♪" } ] },
+        { "text": "다음엔 노래방 가자", "affection": 2, "reply": [ { "who": "rina", "text": "오 좋아! 약속~" } ] }
+      ] },
+    { "id": "sat_night_karaoke",
+      "texts": ["목 쉬었어 ㅋㅋㅋ", "오늘 진짜 재밌었다…", "고마워 ♥"],
+      "choices": [
+        { "text": "나도 최고였어", "affection": 3, "reply": [ { "who": "rina", "text": "헤헤… 잘 자!" } ] },
+        { "text": "다음엔 듀엣 하자", "affection": 3, "reply": [ { "who": "rina", "text": "좋아! 연습해 와야 해?" } ] }
+      ] },
+    { "id": "sat_night_drunk",
+      "texts": ["어제… 아니 오늘? 미안…", "나 너무 마셨지 ㅠㅠ 기억이 잘 안 나…"],
+      "choices": [
+        { "text": "괜찮아, 물 많이 마셔", "affection": 3, "reply": [ { "who": "rina", "text": "…고마워. 다음엔 적당히 마실게" } ] },
+        { "text": "다음엔 적당히 마시자", "affection": 1, "reply": [ { "who": "rina", "text": "응… 창피해 ㅠㅠ" } ] }
+      ] },
+    { "id": "sun_invite",
+      "texts": ["일요일인데 뭐 해?", "오늘 쇼핑거리에서 겨울 축제 한대!", "…같이 갈래? 네가 구운 붕어빵 먹고 싶어서 ㅎㅎ"],
+      "choices": [
+        { "text": "좋아! 바로 갈게", "affection": 3, "flag": "date_accepted", "reply": [ { "who": "rina", "text": "진짜? 축제 입구에서 기다릴게!" } ] },
+        { "text": "미안, 오늘은 쉴래", "affection": -1, "reply": [ { "who": "rina", "text": "아 그래… 푹 쉬어!" } ] }
+      ] },
+    { "id": "sun_hello",
+      "texts": ["주말 잘 보내고 있어?", "다음 주에도 노점 들를게~"],
+      "choices": [
+        { "text": "기다릴게", "affection": 2, "reply": [ { "who": "rina", "text": "ㅎㅎ 팥 남겨 둬!" } ] },
+        { "text": "다음 주 토요일에 봐", "affection": 1, "reply": [ { "who": "rina", "text": "응! 잘 자~" } ] }
+      ] }
+  ],
+
+  "lyrics": ["(전주 중…)", "첫눈이 내리는 밤에", "하얀 숨을 나눠 쉬던", "작은 가게 불빛 아래", "너를 기다렸어", "달콤하고 따뜻한 건", "겨울 탓일까 너일까", "눈이 녹을 때까지", "곁에 있어 줘~"]
+}

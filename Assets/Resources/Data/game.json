@@ -1,0 +1,86 @@
+{
+  "economy": {
+    "startMoney": 8000,
+    "startBatter": 14,
+    "startRed": 8,
+    "startCream": 8,
+    "perfectBonus": 80,
+    "rawPriceRate": 0.5,
+    "maxStamina": 5,
+    "workStaminaCost": 1,
+    "restStaminaGain": 2,
+    "shopDaySeconds": 150,
+    "shopOpenHour": 14,
+    "shopCloseHour": 20,
+    "weeklyGoal": 18000,
+    "clubEntry": 5000,
+    "karaokePrice": 4000,
+    "rackCapacity": 8,
+    "startMolds": 2,
+    "maxQueue": 4,
+    "cookSideA": 2.6,
+    "cookSideB": 3.2,
+    "tiredPatienceRate": 0.85
+  },
+  "fillings": [
+    { "id": "red", "name": "팥", "price": 250, "sprite": "red", "tint": "", "dotColor": "#8a1f2a", "startUnlocked": true, "weight": 6 },
+    { "id": "cream", "name": "슈크림", "price": 300, "sprite": "cream", "tint": "", "dotColor": "#f5c45a", "startUnlocked": true, "weight": 4 },
+    { "id": "strawberry", "name": "딸기 크림", "price": 400, "sprite": "cream", "tint": "#ffa8c8", "dotColor": "#ff7fb0", "startUnlocked": false, "weight": 3, "researchPrice": 5000, "requireFlag": "hint_strawberry", "researchDesc": "그녀가 말한 '귀여운' 붕어빵. 연구 5,000엔" },
+    { "id": "choco", "name": "초콜릿", "price": 400, "sprite": "choco", "tint": "", "dotColor": "#5a3020", "startUnlocked": false, "weight": 3, "researchPrice": 0 },
+    { "id": "cheese", "name": "치즈", "price": 400, "sprite": "cheese", "tint": "", "dotColor": "#f0e0a0", "startUnlocked": false, "weight": 2, "researchPrice": 0 }
+  ],
+  "ingredients": [
+    { "id": "batter", "name": "반죽", "packSize": 10, "packPrice": 700, "sprite": "Sprites/bowl_batter" },
+    { "id": "red", "name": "팥소", "packSize": 10, "packPrice": 500, "sprite": "Sprites/bowl_red" },
+    { "id": "cream", "name": "슈크림", "packSize": 10, "packPrice": 800, "sprite": "Sprites/bowl_cream" },
+    { "id": "strawberry", "name": "딸기 크림", "packSize": 10, "packPrice": 1100, "sprite": "Sprites/bowl_cream" }
+  ],
+  "customers": [
+    { "id": "student", "name": "학생", "sprite": "Customers/student", "minItems": 1, "maxItems": 2, "patience": 26, "weight": 5, "tipRate": 0.6,
+      "orderLines": ["팥 하나요!", "학원 가기 전에 하나~", "크림 있어요?"],
+      "happyLines": ["앗 뜨거!", "맛있겠다~", "감사합니다!"],
+      "angryLines": ["학원 늦겠다…", "다음에 올게요"] },
+    { "id": "office", "name": "회사원", "sprite": "Customers/office", "minItems": 2, "maxItems": 3, "patience": 20, "weight": 4, "tipRate": 1.2,
+      "orderLines": ["빨리 부탁해요", "팀 간식이에요", "포장이요"],
+      "happyLines": ["살았다…", "고마워요", "야근 버틸 힘이 난다"],
+      "angryLines": ["회의 늦었다!", "…됐습니다"] },
+    { "id": "family", "name": "아이와 부모", "sprite": "Customers/family", "minItems": 2, "maxItems": 4, "patience": 32, "weight": 3, "tipRate": 1.0,
+      "orderLines": ["물고기 빵!", "크림이랑 팥 반반이요", "엄마 나 두 개!"],
+      "happyLines": ["우와 물고기다!", "잘 먹을게요~"],
+      "angryLines": ["애가 기다리다 지쳤네요…"] },
+    { "id": "drunk", "name": "술 취한 아저씨", "sprite": "Customers/drunk", "minItems": 1, "maxItems": 3, "patience": 16, "weight": 2, "tipRate": 2.0,
+      "orderLines": ["어이 사장~ 붕어 세 마리!", "딸꾹… 팥으로!"],
+      "happyLines": ["캬~ 이 맛이지!", "사장 멋쟁이!"],
+      "angryLines": ["에잇, 안 먹어!", "딸꾹… 느려!"] },
+    { "id": "couple", "name": "커플", "sprite": "Customers/couple", "minItems": 2, "maxItems": 3, "patience": 28, "weight": 3, "tipRate": 1.0,
+      "orderLines": ["하나씩 나눠 먹자~", "크림 둘이요!"],
+      "happyLines": ["따뜻하다♥", "꼬리부터 먹는 파?"],
+      "angryLines": ["딴 데 가자…"] },
+    { "id": "regular", "name": "단골 할머니", "sprite": "Customers/regular", "minItems": 1, "maxItems": 2, "patience": 40, "weight": 2, "tipRate": 1.5,
+      "orderLines": ["늘 먹던 걸로~", "총각, 오늘도 수고해"],
+      "happyLines": ["역시 여기가 제일이야", "손주 갖다 줘야지"],
+      "angryLines": ["오늘은 바쁜가 보네"] }
+  ],
+  "upgrades": [
+    { "id": "mold3", "name": "붕어빵 틀 +1", "desc": "붕어빵 틀을 하나 더 들인다. (틀 2개 → 3개)\n동시에 더 많이 구울 수 있지만 그만큼 바빠진다.", "price": 12000, "molds": 3, "level": 2 }
+  ],
+  "gifts": [
+    { "id": "scarf", "name": "와인색 목도리", "desc": "그녀의 코트와 어울릴 것 같은 부드러운 목도리.", "price": 6000, "sprite": "Sprites/noren" },
+    { "id": "flower", "name": "겨울 꽃다발", "desc": "작고 하얀 꽃다발. 부담스럽지 않은 선물.", "price": 3000, "sprite": "Sprites/menu_board" }
+  ],
+  "stallLevels": [
+    { "level": 1, "desc": "낡은 천막 + 붕어빵 틀 2개" },
+    { "level": 2, "desc": "새 간판 + 틀 3~4개" },
+    { "level": 3, "desc": "조명 + 메뉴판 + 보온 진열대 (준비 중)" },
+    { "level": 4, "desc": "예쁜 포장지 + 틀 6개 (준비 중)" },
+    { "level": 5, "desc": "지역 명물 노점 (준비 중)" }
+  ],
+  "prologue": [
+    "지난 주말, 친구 손에 끌려 처음 가 본 번화가의 클럽 「NEON MOON」.",
+    "시끄러운 음악 속에서, 와인색 코트를 입은 그녀가 웃었다.",
+    "“붕어빵 가게 사장님? 귀엽다. 다음 주 토요일에도 나 출근해.”",
+    "…그리고 지금, 내 통장 잔고는 ¥8,000.",
+    "나: 좋아. 이번 주도 붕어빵을 굽자.",
+    "나: 토요일에 그녀를 만나러 가려면, 돈을 벌어야 한다."
+  ]
+}
