@@ -14,7 +14,9 @@ namespace Taiyaki
         public int week;
         public int day;
         public bool read;
-        public int answer = -1;
+        public int answer = -1;    // -1 답장 대기 · -2 답장 안 함(다음 메시지가 옴) · 0~ 고른 답장
+
+        public const int Pending = -1, Skipped = -2;
     }
 
     [Serializable]
@@ -166,6 +168,8 @@ namespace Taiyaki
         public InboxMsg Deliver(string heroine, string id)
         {
             foreach (var m in inbox) if (m.id == id && m.week == week) return m;
+            // 새 메시지가 오면 답장하지 않은 이전 메시지는 지나간 대화가 된다 (답장 불가 → 알림에서 제외)
+            foreach (var m in inbox) if (m.heroine == heroine && m.answer == InboxMsg.Pending) m.answer = InboxMsg.Skipped;
             var msg = new InboxMsg { heroine = heroine, id = id, week = week, day = day };
             inbox.Add(msg);
             return msg;
@@ -176,7 +180,7 @@ namespace Taiyaki
             get
             {
                 int n = 0;
-                foreach (var m in inbox) if (!m.read || m.answer < 0) n++;
+                foreach (var m in inbox) if (!m.read || m.answer == InboxMsg.Pending) n++;
                 return n;
             }
         }

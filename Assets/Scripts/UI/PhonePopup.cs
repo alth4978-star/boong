@@ -95,6 +95,12 @@ namespace Taiyaki
                     y = Bubble(c.text, true, y, w);
                     if (c.reply != null) foreach (var r in c.reply) y = Bubble(r.text, r.who == "hero", y, w);
                 }
+                else if (m.answer == InboxMsg.Skipped)
+                {
+                    var skipped = UIKit.Label(content, "(답장하지 않았다)", 7, new Color(0.6f, 0.55f, 0.55f), TextAnchor.MiddleRight);
+                    skipped.rectTransform.At(0, y, w - 8, 12);
+                    y += 14;
+                }
                 else if (def.choices != null && def.choices.Length > 0) pending = m;
                 y += 6;
             }
