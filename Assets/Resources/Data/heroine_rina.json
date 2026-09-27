@@ -10,7 +10,7 @@
   "smallSprite": "Characters/rina_small",
   "tolerance": 5,
   "stageNames": ["처음 본 손님", "낯익은 손님", "친한 손님", "친구", "특별한 사람", "연인"],
-  "stageThresholds": [0, 10, 25, 45, 70, 90],
+  "stageThresholds": [0, 10, 30, 55, 80, 95],
 
   "drinks": [
     { "id": "strawberry", "name": "딸기 칵테일", "desc": "달콤한 한 잔", "price": 2500, "drunk": 1, "affection": 4,

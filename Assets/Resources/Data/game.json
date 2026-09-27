@@ -12,7 +12,7 @@
     "shopDaySeconds": 150,
     "shopOpenHour": 14,
     "shopCloseHour": 20,
-    "weeklyGoal": 18000,
+    "weeklyGoal": 25000,
     "clubEntry": 5000,
     "karaokePrice": 4000,
     "rackCapacity": 8,
@@ -30,10 +30,10 @@
     { "id": "cheese", "name": "치즈", "price": 400, "sprite": "cheese", "tint": "", "dotColor": "#f0e0a0", "startUnlocked": false, "weight": 2, "researchPrice": 0 }
   ],
   "ingredients": [
-    { "id": "batter", "name": "반죽", "packSize": 10, "packPrice": 700, "sprite": "Sprites/bowl_batter" },
-    { "id": "red", "name": "팥소", "packSize": 10, "packPrice": 500, "sprite": "Sprites/bowl_red" },
-    { "id": "cream", "name": "슈크림", "packSize": 10, "packPrice": 800, "sprite": "Sprites/bowl_cream" },
-    { "id": "strawberry", "name": "딸기 크림", "packSize": 10, "packPrice": 1100, "sprite": "Sprites/bowl_cream" }
+    { "id": "batter", "name": "반죽", "packSize": 10, "packPrice": 800, "sprite": "Sprites/bowl_batter" },
+    { "id": "red", "name": "팥소", "packSize": 10, "packPrice": 600, "sprite": "Sprites/bowl_red" },
+    { "id": "cream", "name": "슈크림", "packSize": 10, "packPrice": 900, "sprite": "Sprites/bowl_cream" },
+    { "id": "strawberry", "name": "딸기 크림", "packSize": 10, "packPrice": 1300, "sprite": "Sprites/bowl_cream" }
   ],
   "customers": [
     { "id": "student", "name": "학생", "sprite": "Customers/student", "minItems": 1, "maxItems": 2, "patience": 26, "weight": 5, "tipRate": 0.6,

@@ -24,7 +24,7 @@ namespace Taiyaki
         public float shopDaySeconds = 150f;
         public int shopOpenHour = 14;
         public int shopCloseHour = 20;
-        public int weeklyGoal = 18000;
+        public int weeklyGoal = 25000;
         public int clubEntry = 5000;
         public int karaokePrice = 4000;
         public int rackCapacity = 8;
