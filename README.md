@@ -21,7 +21,8 @@
    - 권장 버전: **Unity 2022.3 LTS** (Unity 6에서도 열립니다. 버전이 다르면 Hub가 업그레이드를 물어봅니다.)
 2. 처음 열면 `Assets/Scenes/Main.unity`가 자동으로 열립니다. (안 열리면 메뉴 **Taiyaki → Open Main Scene**)
 3. **▶ Play**를 누르면 끝! 씬에 아무것도 배치할 필요가 없습니다 — 게임이 코드로 스스로 화면을 구성합니다.
-4. 빌드: `File → Build Settings`에 Main 씬이 이미 등록되어 있습니다.
+4. 빌드: 메뉴 **Taiyaki → Build → Windows (x64) / Android (APK)** → `Builds/` 폴더에 생성됩니다.
+   (Android는 가로 화면 고정. 배치: `-executeMethod Taiyaki.EditorTools.BuildScript.BuildAndroid`)
 
 > 이미지가 흐리거나 뭉개져 보이면 메뉴 **Taiyaki → Reimport Art** 를 한 번 실행하세요.
 > 세이브 초기화: **Taiyaki → Delete Save Data**
@@ -101,6 +102,7 @@ Assets/
            PhonePopup.cs         스마트폰 메시지
     Screens/                     각 화면
     Editor/ArtImportSettings.cs  이미지 임포트 자동 설정 + Taiyaki 메뉴
+           BuildScript.cs        Windows / Android 빌드 (Taiyaki → Build)
            SmokeTest.cs          Play 모드 자동 스모크 테스트 (Taiyaki → Run Smoke Test)
   Resources/
     Data/game.json               경제 수치·메뉴·재료·손님·업그레이드·선물·프롤로그
